@@ -1,4 +1,4 @@
-![cover-v5-optimized](./src/assets/imgs/jyf-ai-chat.png)
+![cover-v5-optimized](../src/assets/imgs/jyf-ai-chat.png)
 
 <div align="center">
   <a href="./README.md"><img alt="README in English" src="https://img.shields.io/badge/English-d9d9d9"></a>
