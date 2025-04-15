@@ -33,16 +33,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (parsedMessages.length > 0)  {
-      console.log('parsedMessages-->', parsedMessages);
-      ChatStore.setNewMessages(parsedMessages);
-    }
+    ChatStore.setNewMessages(parsedMessages);
     ViewStore.messageRefscrollToBottom("instant", 0);
     setOnComplete((chatId) => {
       if (parsedMessages.length > 0 ) {
-        setTimeout(() => {
-          setMessages([]);
-        }, 500);
+        setMessages([]);
         ChatStore.saveMessages(parsedMessages, chatId, true);
       }
     });
