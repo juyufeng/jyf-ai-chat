@@ -1,0 +1,61 @@
+{
+  "compilerOptions": {
+    // 编译目标版本为 ES5，确保兼容性
+    "target": "ES2015",
+    "downlevelIteration": true,
+    
+    // 包含的类型定义库
+    "lib": ["dom", "dom.iterable", "esnext"],
+    
+    // 允许编译 JavaScript 文件
+    "allowJs": true,
+    
+    // 跳过声明文件的类型检查，提高编译速度
+    "skipLibCheck": true,
+    
+    // 允许导入默认导出，即使模块没有默认导出
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    
+    // 启用严格的类型检查
+    "strict": true,
+    
+    // 强制文件名大小写一致
+    "forceConsistentCasingInFileNames": true,
+    
+    // 防止 switch 语句中的贯穿错误
+    "noFallthroughCasesInSwitch": true,
+    
+    // 使用 ES 模块系统
+    "module": "esnext",
+    
+    // 使用 Node.js 风格的模块解析
+    "moduleResolution": "node",
+    
+    // 允许导入 JSON 文件
+    "resolveJsonModule": true,
+    
+    // 确保每个文件都是模块
+    "isolatedModules": true,
+    
+    // 不输出编译文件，只做类型检查
+    "noEmit": true,
+    
+    // 支持 React JSX 语法
+    "jsx": "react-jsx",
+    
+    // 设置基准目录为 src
+    "baseUrl": ".",
+    
+    // 路径别名配置
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  // 包含的文件目录
+  "include": ["src/**/*", "tests/**/*"],
+  
+  // 排除的文件目录
+  "exclude": ["node_modules"],
+  
+}
