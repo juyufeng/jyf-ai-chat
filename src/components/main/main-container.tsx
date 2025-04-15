@@ -1,4 +1,4 @@
-import { FC, Suspense, lazy } from 'react';
+import { FC, Suspense, lazy, useRef } from 'react';
 import { observer } from "mobx-react-lite";
 import { useAppStyle } from "@/styles/app.styles";
 import ChatStore from "@/stores/chat-store";
@@ -17,25 +17,22 @@ interface MainContainerProps {
   onRequest: (message: string) => void;
 }
 
+import ScrollTopSection from './sections/scroll-top-section';
+
 const MainContainer: FC<MainContainerProps> = ({ onRequest }) => {
   const { getContentStyle } = useAppStyle();
-
-  if (ChatStore.showSkeleton) {
-    return (
-      <div style={getContentStyle({ isShowMenu: ViewStore.isMenuVisible() })}>
-        <Suspense fallback={<LoadingComponent />}>
-          <SkeletonSection />
-        </Suspense>
-      </div>
-    );
-  }
+  const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div style={getContentStyle({ isShowMenu: ViewStore.isMenuVisible() })}>
+    <div 
+      ref={containerRef}
+      style={getContentStyle({ isShowMenu: ViewStore.isMenuVisible() })}
+    >
       <Suspense fallback={<LoadingComponent />}>
         <WelcomeSection />
         <HistorySection />
         <CurrentChatSection />
+        <ScrollTopSection containerRef={containerRef} />
         <BottomSection onRequest={onRequest} />
         <FormSection onRequest={onRequest} />
       </Suspense>
